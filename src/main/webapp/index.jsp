@@ -10,12 +10,14 @@
 
 <h1 align="center">Lista de vinilos</h1>
 
+
+<!--  TODO: hacer que los datos los traiga del fichero de datos -->
 <table cellpadding="5" border=1 align="center">
 
   <tr>
-    <td align="left"><b>Descripción</b></td>
-    <td align="left"><b>Precio</b></td>
-    <td align="left"></td>
+    <td><b>Descripción</b></td>
+    <td><b>Precio</b></td>
+    <td></td>
   </tr> 
   
   <tr>

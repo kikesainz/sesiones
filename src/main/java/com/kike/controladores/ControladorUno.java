@@ -1,11 +1,13 @@
 package com.kike.controladores;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,7 +38,21 @@ public class ControladorUno extends HttpServlet {
 			throws ServletException, IOException {
 		String productCode = request.getParameter("productCode");
 		String quantityAsString = request.getParameter("quantity");
+		
+		Cookie c = new Cookie("prueba", "valor de la cookie");
+		response.addCookie(c);
 
+		Cookie[] listaCookies = request.getCookies();
+		
+		Cookie[] cookies = request.getCookies( ) ;
+		String cookieName = "prueba";
+		String cookieValue = "";
+		for (Cookie cookie: cookies) {
+			System.out.println("nombre cookie: " + cookie.getName() + "valor de cookie: "+ cookie.getValue());
+		}
+
+		
+		
 		HttpSession session = request.getSession();
 
 		synchronized (session) {
