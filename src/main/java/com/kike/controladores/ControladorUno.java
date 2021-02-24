@@ -38,55 +38,54 @@ public class ControladorUno extends HttpServlet {
 			throws ServletException, IOException {
 		String productCode = request.getParameter("productCode");
 		String quantityAsString = request.getParameter("quantity");
-		
-		Cookie c = new Cookie("prueba", "valor de la cookie");
-		response.addCookie(c);
 
-		Cookie[] listaCookies = request.getCookies();
-		
-		Cookie[] cookies = request.getCookies( ) ;
-		String cookieName = "prueba";
-		String cookieValue = "";
-		for (Cookie cookie: cookies) {
-			System.out.println("nombre cookie: " + cookie.getName() + "valor de cookie: "+ cookie.getValue());
-		}
+//		Cookie c = new Cookie("cookiePrueba", "valodelacookie");
+//		response.addCookie(c);
+//
+//		Cookie[] listaCookies = request.getCookies();
+//
+//		Cookie[] cookies = request.getCookies();
+//		String cookieName = "prueba";
+//		String cookieValue = "";
+//		for (Cookie cookie : cookies) {
+//			System.out.println("nombre cookie: " + cookie.getName() + "valor de cookie: " + cookie.getValue());
+//		}
 
-		
-		
 		HttpSession session = request.getSession();
 
-		synchronized (session) {
-			// Obtenemos la cesta guardada en la sesión
-			Cesta cesta = (Cesta) session.getAttribute("cesta");
-			if (cesta == null) {
-				cesta = new Cesta();
-				session.setAttribute("cesta", cesta.getItems());
-			}
-
-			// Si el usuario introduce un -1 o un caracter inválido
-			// la cantidad se resetea a 1
-			int quantity = 1;
-			try {
-				quantity = Integer.parseInt(quantityAsString);
-				if (quantity < 0) quantity = 1;
-					
-			} catch (NumberFormatException nfe) {
-				quantity = 1;
-			}
-
-			ServletContext sc = getServletContext();
-			String path = sc.getRealPath("WEB-INF/products.txt");
-			Product product = ProductIO.getProduct(productCode, path);
-
-			Item lineItem = new Item();
-			lineItem.setProduct(product);
-			lineItem.setQuantity(quantity);
-
-			if (quantity > 0) cesta.addItem(lineItem);
-			if (quantity <= 0) cesta.eliminarItem(lineItem);
-
-			session.setAttribute("cesta", cesta);
+		// Obtenemos la cesta guardada en la sesión
+		Cesta cesta = (Cesta) session.getAttribute("cesta");
+		if (cesta == null) {
+			cesta = new Cesta();
+			session.setAttribute("cesta", cesta.getItems());
 		}
+
+		// Si el usuario introduce un -1 o un caracter inválido
+		// la quantity se resetea a 1
+		int quantity = 1;
+		try {
+			quantity = Integer.parseInt(quantityAsString);
+			if (quantity < 0)
+				quantity = 1;
+
+		} catch (NumberFormatException nfe) {
+			quantity = 1;
+		}
+
+		ServletContext sc = getServletContext();
+		String path = sc.getRealPath("WEB-INF/products.txt");
+		Product product = ProductIO.getProduct(productCode, path);
+
+		Item lineItem = new Item();
+		lineItem.setProduct(product);
+		lineItem.setQuantity(quantity);
+
+		if (quantity > 0)
+			cesta.addItem(lineItem);
+		if (quantity <= 0)
+			cesta.eliminarItem(lineItem);
+
+		session.setAttribute("cesta", cesta);
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/cesta.jsp");
 		dispatcher.forward(request, response);

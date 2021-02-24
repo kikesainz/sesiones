@@ -47,7 +47,8 @@
 		       ${item.product.price}
 		    </td>
 		    <td>
-		       ${item.product.price}
+		     ${item.product.price * item.quantity}
+				     
 		    </td>
 		    <td>
 		      <form action="carrito" method="post">
