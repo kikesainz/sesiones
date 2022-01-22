@@ -35,7 +35,7 @@
 		  <tr>
 		    <td>
 		      <form action="carrito" method="post">
-		        <input type="hidden" name="productcodigo" value="${item.producto.codigo}">
+		        <input type="hidden" name="codigoProducto" value="${item.producto.codigo}">
 		        <input type=text size=2 name="cantidad" value="${item.cantidad}">
 		        <input type="submit" value="Actualizar">
 		      </form>

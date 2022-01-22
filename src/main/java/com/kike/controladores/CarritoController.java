@@ -36,8 +36,8 @@ public class CarritoController extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String productCode = request.getParameter("productCode");
-		String quantityAsString = request.getParameter("quantity");
+		String productCode = request.getParameter("codigoProducto");
+		String quantityAsString = request.getParameter("cantidad");
 
 		HttpSession session = request.getSession();
 

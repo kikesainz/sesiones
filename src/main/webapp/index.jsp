@@ -23,25 +23,25 @@
   <tr>
     <td>Never Mind The Bollocks. The Sex Pistols</td>
     <td>10.50€</td>
-    <td><a href="carrito?productCode=VIN01">Añadir a la cesta</a></td>
+    <td><a href="carrito?codigoProducto=VIN01">Añadir a la cesta</a></td>
   </tr>
 
   <tr>
     <td>Transformer. Lou Reed</td>
     <td>13.99€</td>
-    <td><a href="carrito?productCode=VIN02">Añadir a la cesta</a></td>
+    <td><a href="carrito?codigoProducto=VIN02">Añadir a la cesta</a></td>
   </tr>
 
   <tr>
     <td>Without You I'm Nothing. Placebo</td>
     <td>13.00€</td>
-    <td><a href="carrito?productCode=VIN03">Añadir a la cesta</a></td>
+    <td><a href="carrito?codigoProducto=VIN03">Añadir a la cesta</a></td>
   </tr>
 
   <tr>
     <td>Blood Sugar Sex Magik. Red Hot Chili Peppers</td>
     <td>9.99€</td>
-    <td><a href="carrito?productCode=VIN04">Añadir a la cesta</a></td>
+    <td><a href="carrito?codigoProducto=VIN04">Añadir a la cesta</a></td>
   </tr>
 
 </table>
