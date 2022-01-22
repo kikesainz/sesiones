@@ -5,34 +5,40 @@ import java.text.NumberFormat;
 
 public class Item implements Serializable
 {
-    private Product product;
-    private int quantity;
+    private Product producto;
+    private int cantidad;
     
     public Item() {}
     
-    public void setProduct(Product p)
-    {
-        product = p;
-    }
 
-    public Product getProduct()
-    { 
-        return product;
-    }
+    
+    public Product getProducto() {
+		return producto;
+	}
 
-    public void setQuantity(int quantity)
-    {
-        this.quantity = quantity;
-    }
-    
-    public int getQuantity()
+
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+
+
+	public void setProducto(Product producto) {
+		this.producto = producto;
+	}
+
+
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+
+
+	public double getTotal()
     { 
-        return quantity; 
-    }
-    
-    public double getTotal()
-    { 
-        double total = product.getPrice() * quantity;
+        double total = producto.getPrecio() * cantidad;
         return total;
     }
     

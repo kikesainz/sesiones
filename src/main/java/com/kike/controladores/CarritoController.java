@@ -23,13 +23,13 @@ import com.kike.dtos.Product;
  */
 
 @WebServlet("/carrito")
-public class ControladorUno extends HttpServlet {
+public class CarritoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ControladorUno() {
+	public CarritoController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -39,21 +39,9 @@ public class ControladorUno extends HttpServlet {
 		String productCode = request.getParameter("productCode");
 		String quantityAsString = request.getParameter("quantity");
 
-//		Cookie c = new Cookie("cookiePrueba", "valodelacookie");
-//		response.addCookie(c);
-//
-//		Cookie[] listaCookies = request.getCookies();
-//
-//		Cookie[] cookies = request.getCookies();
-//		String cookieName = "prueba";
-//		String cookieValue = "";
-//		for (Cookie cookie : cookies) {
-//			System.out.println("nombre cookie: " + cookie.getName() + "valor de cookie: " + cookie.getValue());
-//		}
-
 		HttpSession session = request.getSession();
 
-		// Obtenemos la cesta guardada en la sesión
+		// Obtenemos la cesta guardada en la sesión, si no existe creamos el atributo cesta
 		Cesta cesta = (Cesta) session.getAttribute("cesta");
 		if (cesta == null) {
 			cesta = new Cesta();
@@ -77,8 +65,8 @@ public class ControladorUno extends HttpServlet {
 		Product product = ProductIO.getProduct(productCode, path);
 
 		Item lineItem = new Item();
-		lineItem.setProduct(product);
-		lineItem.setQuantity(quantity);
+		lineItem.setProducto(product);
+		lineItem.setCantidad(quantity);
 
 		if (quantity > 0)
 			cesta.addItem(lineItem);

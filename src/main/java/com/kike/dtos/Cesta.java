@@ -25,13 +25,13 @@ public class Cesta implements Serializable {
 	 * @param item
 	 */
 	public void addItem(Item item) {
-		String code = item.getProduct().getCode();
-		int quantity = item.getQuantity();
+		String code = item.getProducto().getCodigo();
+		int quantity = item.getCantidad();
 		for (int i = 0; i < items.size(); i++) {
 			Item lineItem = items.get(i);
 			//Compruebo si el producto está en la cesta, si está le seteo la cantidad
-			if (lineItem.getProduct().getCode().equals(code)) {
-				lineItem.setQuantity(quantity);
+			if (lineItem.getProducto().getCodigo().equals(code)) {
+				lineItem.setCantidad(quantity);
 				return;
 			}
 		}
@@ -40,10 +40,10 @@ public class Cesta implements Serializable {
 	}
 
 	public void eliminarItem(Item item) {
-		String code = item.getProduct().getCode();
+		String code = item.getProducto().getCodigo();
 		for (int i = 0; i < items.size(); i++) {
 			Item lineItem = items.get(i);
-			if (lineItem.getProduct().getCode().equals(code)) {
+			if (lineItem.getProducto().getCodigo().equals(code)) {
 				items.remove(i);
 				return;
 			}

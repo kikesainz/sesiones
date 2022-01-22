@@ -4,42 +4,56 @@ import java.io.Serializable;
 import java.text.NumberFormat;
 
 public class Product implements Serializable {
-	private String code;
-	private String description;
-	private double price;
+	private String codigo;
+	private String descripcion;
+	private double precio;
 
 	public Product() {
-		code = "";
-		description = "";
-		price = 0;
+		codigo = "";
+		descripcion = "";
+		precio = 0;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+
+
+	public String getCodigo() {
+		return codigo;
 	}
 
-	public String getCode() {
-		return code;
+
+
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+
+
+	public double getPrecio() {
+		return precio;
 	}
 
-	public String getDescription() {
-		return description;
+
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
-	public double getPrice() {
-		return price;
+
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
 	}
+
+
 
 	public String getPriceCurrencyFormat() {
 		NumberFormat currency = NumberFormat.getCurrencyInstance();
-		return currency.format(price);
+		return currency.format(precio);
 	}
 }

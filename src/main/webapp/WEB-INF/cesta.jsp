@@ -35,25 +35,25 @@
 		  <tr>
 		    <td>
 		      <form action="carrito" method="post">
-		        <input type="hidden" name="productCode" value="${item.product.code}">
-		        <input type=text size=2 name="quantity" value="${item.quantity}">
+		        <input type="hidden" name="productcodigo" value="${item.producto.codigo}">
+		        <input type=text size=2 name="cantidad" value="${item.cantidad}">
 		        <input type="submit" value="Actualizar">
 		      </form>
 		    </td>
 		    <td>
-		     ${item.product.description}
+		     ${item.producto.descripcion}
 		    </td>
 		    <td>
-		       ${item.product.price}
+		       ${item.producto.precio}
 		    </td>
 		    <td>
-		     ${item.product.price * item.quantity}
+		     ${item.producto.precio * item.cantidad}
 				     
 		    </td>
 		    <td>
 		      <form action="carrito" method="post">
-		        <input type="hidden" name="productCode" value="${item.product.code}">
-		        <input type="hidden" name="quantity" value="0">
+		        <input type="hidden" name="codigoProducto" value="${item.producto.codigo}">
+		        <input type="hidden" name="cantidad" value="0">
 		        <input type="submit" value="Eliminar Producto">
 		      </form>
 		    </td>
@@ -70,7 +70,7 @@
 	  <input type="submit" name="continue" value="Continúa comprando">
 	</form>
 	
-	<form action="checkout.jsp" method="post" style="margin-top: 20px;">
+	<form action="checkout" method="post" style="margin-top: 20px;">
 	  <input type="submit" name="checkout" value="Checkout">
 	</form>
 </div>
