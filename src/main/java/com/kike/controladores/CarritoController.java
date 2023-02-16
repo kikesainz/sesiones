@@ -61,7 +61,9 @@ public class CarritoController extends HttpServlet {
 		}
 
 		ServletContext sc = getServletContext();
+		//Cogemos el fichero (BBDD) donde tenemos almacenamos los productos de la tienda
 		String path = sc.getRealPath("WEB-INF/products.txt");
+		//Obtenemos el producto que ha elegido el cliente convertido en un objeto producto.
 		Product product = ProductIO.getProduct(productCode, path);
 
 		Item lineItem = new Item();
